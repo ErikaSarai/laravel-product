@@ -14,13 +14,13 @@
       <div class="col-sm">
 <!-- Con esto accedemos a la Variable y al id y el nombre del registro -->
 
-<div class="card" style="width: 18rem;">
-  <img src="images/{{$product->img}}" class="card-img-top" alt="" height="250px">
+<div class="card text-center" style="width: 18rem; margin-top:50px;">
+  <img src="images/{{$product->img}}" class="card-img-top mx-auto d-block" alt="" height="250px">
   <div class="card-body">
-    <h5 class="card-title">Product: {{$product->product}}</h5>
+    <h5 class="card-title">{{$product->product}}</h5>
     <p class="card-text">{{$product->description}}</p>
     <a href="#" class="btn btn-primary">Price:{{$product->price}}</a>
-    <a href="#" class="btn btn-primary">Comprar</a>
+    <a href="/product/{{$product->id}}" class="btn btn-primary">Ver más</a>
   </div>
 </div>
        </div>

@@ -9,16 +9,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-
-    // public function confirm()
-    // {
-    //     return view('confirm');
-    // }
-
-    // public function to_post()
-    // {
-    //     return view('to_post');
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +41,7 @@ class ProductController extends Controller
     {
 
 
-        if($request->hasFile('img')){
+       if($request->hasFile('img')){
 
             $file = $request->file('img');
             $imagen = time().$file->getClientOriginalName();
@@ -80,9 +70,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    // (Product $product) Este es un método de implicit binding
+    public function show(Product $product)
     {
-        //
+
+        // Este es un método de eloquent hace lo mismo que implicit binding 
+        // $product = Product::find($id);
+        
+        return view ('product.show', compact('product'));
     }
 
     /**
