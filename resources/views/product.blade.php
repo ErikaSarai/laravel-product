@@ -15,10 +15,10 @@
 <!-- Con esto accedemos a la Variable y al id y el nombre del registro -->
 
 <div class="card" style="width: 18rem;">
-  <!-- <img src="..." class="card-img-top" alt="..."> -->
+  <img src="images/{{$product->img}}" class="card-img-top" alt="" height="250px">
   <div class="card-body">
     <h5 class="card-title">Product: {{$product->product}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">{{$product->description}}</p>
     <a href="#" class="btn btn-primary">Price:{{$product->price}}</a>
     <a href="#" class="btn btn-primary">Comprar</a>
   </div>

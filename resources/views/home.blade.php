@@ -44,7 +44,7 @@
     </div>
 
     <div class="text-center mt-50"  style="margin-top:50px;">
-    <a href="{{ url('product/create') }}" class="btn btn-primary">Confirm</a>
+    <a href="{{ url('product/create') }}" class="btn btn-primary">Product</a>
     </div>
     
 </div>

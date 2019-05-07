@@ -50,9 +50,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+
+        if($request->hasFile('img')){
+
+            $file = $request->file('img');
+            $imagen = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/',$imagen);
+    
+        }
+
         $product = new Product();
         $product->product = $request->input('product');
         $product->price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->img = $imagen;
         $product->save();
         return view('product.to_post');
         // $product = new Product();

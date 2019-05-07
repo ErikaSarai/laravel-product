@@ -42,7 +42,7 @@
                     @endif
 
 
-<form method="POST" action="/product">      
+<form method="POST" action="/product" enctype="multipart/form-data">      
 <!-- Importante para todo formulario  {{ csrf_field() }}   -->
 @csrf  
 
@@ -64,6 +64,20 @@
         </div>
     </div>  
 
+    <div class="form-group">
+        <label for="">Descripción</label>
+        <!-- Y el input NECESITA UN NOMBRE  para IDENTIFICARSE -->
+        <input type="text" name="description" class="form-control">
+        </div>
+
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label text-md-right">Imagen</label>
+
+        <div class="col-md-6">
+            <input type="file" class="form-control" name="img">
+
+        </div>
+    </div> 
 
         <div class="offset-md-6"> 
         <button type="submit" class="btn btn-primary">
