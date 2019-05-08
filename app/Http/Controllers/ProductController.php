@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Product;
-
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -51,6 +50,7 @@ class ProductController extends Controller
 
         $product = new Product();
         $product->product = $request->input('product');
+        $product->slug = $request->input('product');
         $product->price = $request->input('price');
         $product->description = $request->input('description');
         $product->img = $imagen;
@@ -87,9 +87,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view ('product.edit', compact('product'));
+        // return $product;
+
     }
 
     /**
@@ -99,9 +101,23 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->fill($request->except('img'));
+        $product->slug = $request->input('product');
+
+        if($request->hasFile('img')){
+
+            $file = $request->file('img');
+            $imagen = time().$file->getClientOriginalName();
+              // Esto es para que se pueda actualizar la foto en nuestra base de datos
+            $product->img = $imagen;
+
+            $file->move(public_path().'/images/',$imagen);
+        }
+
+        $product->save();
+        return view('product.update');
     }
 
     /**

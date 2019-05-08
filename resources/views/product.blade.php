@@ -20,7 +20,7 @@
     <h5 class="card-title">{{$product->product}}</h5>
     <p class="card-text">{{$product->description}}</p>
     <a href="#" class="btn btn-primary">Price:{{$product->price}}</a>
-    <a href="/product/{{$product->id}}" class="btn btn-primary">Ver más</a>
+    <a href="/product/{{$product->slug}}" class="btn btn-primary">Ver más</a>
   </div>
 </div>
        </div>

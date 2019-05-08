@@ -14,6 +14,7 @@
     <h4>{{$product->product}}</h4>
     <p>{{$product->description}}</p>
     <p>{{$product->price}} $</p>
+    <a href="/product/{{$product->slug}}/edit" class="btn btn-primary">Editar</a>
 
 
 </div>
